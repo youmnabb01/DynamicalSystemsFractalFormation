@@ -1,5 +1,7 @@
 # DLA Cluster Simulation
 This repository contains a Python implementation of the Diffusion Limited Aggregation (DLA) model, which simulates the formation of clusters through random particle diffusion. The simulation runs on a square grid, where particles randomly walk and stick together when they encounter other particles. The simulation can create both static cluster images and animated GIFs of the process.
+# Contributors
+Youmna Abboud, Francesco Guido Vinzoni, Catalina IJspeert
 # Features
 - **Random Walk Simulation**: Simulates the random walk of particles within a square grid.
 - **DLA Model**: Particles stick to the cluster when they encounter it, forming a growing structure.
@@ -13,8 +15,14 @@ This repository contains a Python implementation of the Diffusion Limited Aggreg
 - ImageIO (for GIF creation)
 - Numba (optional for acceleration)
 
-# Acknowledgements
-- Contributors: Youmna Abboud, Francesco Guido Vinzoni, Catalina IJspeert
+  
+# Plotting
+
+The simulation generates various plots to visualize the fractal nature of the DLA cluster:
+
+1. **Log-Log Plot**: Plots the logarithm of the cluster mass vs. the logarithm of the radius to help determine the fractal dimension.
+2. **Fractal Surface Ratio Plot**: Tracks how the fractal surface ratio evolves as more particles are added to the cluster.
+3. **Bar Plots of Matrix Projections**: Shows projections of the cluster's occupied cells along the X and Y axes.
 # Functions
 The simulation models the process of particle diffusion and aggregation to form fractal-like clusters. This is an overview of the main functions used.
 
@@ -78,6 +86,33 @@ This is the main function that simulates the DLA process:
 
 ### **Output:**
 - Returns the total number of particles added to the cluster and the final matrix representing the fractal.
+
+  ---
+
+## 4. monoExp(x, a, b, c)
+Defines an exponential function used to model the fractal surface ratio over time.
+
+- **Inputs**:
+  - `x` (float): The independent variable (iterations or time).
+  - `a`, `b`, `c` (float): Parameters for the exponential function.
+  
+- **Outputs**:
+  - `a * np.exp(b * x) + c`: The exponential function used to fit the fractal surface ratio.
+
+---
+
+## Example Usage
+
+```python
+# Set up the simulation parameters
+radius = 100
+needGif = True
+
+# Run the DLA simulation
+addedCount, matrix = DLAcluster(radius, needGif)
+
+# Generate and save plots
+generate_plots(matrix)
 
 ---
 
