@@ -2,6 +2,9 @@
 This repository contains a Python implementation of the Diffusion Limited Aggregation (DLA) model, which simulates the formation of clusters through random particle diffusion. The simulation runs on a square grid, where particles randomly walk and stick together when they encounter other particles. The simulation can create both static cluster images and animated GIFs of the process.
 # Contributors
 Youmna Abboud, Francesco Guido Vinzoni, Catalina IJspeert
+
+This project was completed at **TU Delft** as part of the **Modeling Dynamical Systems** course.
+
 # Features
 - **Random Walk Simulation**: Simulates the random walk of particles within a square grid.
 - **DLA Model**: Particles stick to the cluster when they encounter it, forming a growing structure.
